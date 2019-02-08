@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <meta http-equiv='X-UA-Compatible' content='ie=edge' />
+    <!-- <link rel='stylesheet' href='style.css' /> -->
+    <title>M&M's sortering</title>
+    <style>
+      * {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      h1 {
+        font-size: 1.7rem;
+        font-weight: 300;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .header {
+        text-transform: uppercase;
+      }
+
+      button {
+        padding: 0 2rem;
+        border: 0;
+        cursor: pointer;
+        border-radius: 3px;
+        text-transform: uppercase;
+      }
+
+      .start {
+        background: rgb(0, 185, 0);
+        color: white;
+      }
+
+      .stop {
+        background: rgb(124, 0, 0);
+        color: white;
+      }
+
+      .btn-area > button {
+        margin: 0.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <section class='head'>
+      <h1 class='header'>Kontrolpanel</h1>
+      <div class='divider'></div>
+    </section>
+    <section class='main'>
+      <div class='btn-area'>
+        <button onclick="handleStart()" class='start' ><p>start</p></button>
+        <button class='stop'><p>stop</p></button>
+      </div>
+    </section>
+    <section class='footer'><h6>test 2</h6></section>
+  </body>
+
+  <script>
+    const btn = document.getElementsByClassName('start');
+    const handleStart = () => {
+      fetch('192.168.4.1')
+        .then(res => console.log("start"))
+      }
+  </script>
+</html>

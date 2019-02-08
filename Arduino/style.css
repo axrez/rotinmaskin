@@ -1,0 +1,40 @@
+* {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+h1 {
+  font-size: 1.7rem;
+  font-weight: 300;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header {
+  text-transform: uppercase;
+}
+
+button {
+  padding: 0 2rem;
+  border: 0;
+  cursor: pointer;
+  border-radius: 3px;
+  text-transform: uppercase;
+}
+
+.start {
+  background: rgb(0, 185, 0);
+  color: white;
+}
+
+.stop {
+  background: rgb(124, 0, 0);
+  color: white;
+}
+
+.btn-area > button {
+  margin: 0.5rem;
+}
