@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "/home/home/.arduino15/packages/esp8266/tools/**",
+                "/home/home/.arduino15/packages/esp8266/hardware/esp8266/2.5.0/**",
+                "/home/home/Documents/arduino-1.8.8/tools/**",
+                "/home/home/Documents/arduino-1.8.8/hardware/arduino/avr/**"
+            ],
+            "forcedInclude": [],
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}
