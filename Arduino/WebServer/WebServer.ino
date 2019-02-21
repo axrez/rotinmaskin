@@ -28,14 +28,14 @@ void handleStart() {
   Serial.println("start");
   server.send(206, "text/plain", "1");
   running = true;
-  digitalWrite(led, 0);
+  digitalWrite(led, 1);
 }
 
 void handleStop() {
   Serial.println("stop");
   server.send(207, "text/plain", "0");
   running = false;
-  digitalWrite(led, 1);
+  digitalWrite(led, 0);
 }
 
 void handleSpeedUp() {
@@ -96,4 +96,7 @@ void setup(void) {
 void loop(void) {
   server.handleClient();
   MDNS.update();
+
+  // monitorer pin og tæl antal af sorteret m&m's
+
 }
