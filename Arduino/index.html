@@ -55,6 +55,16 @@
       .first-row {
         padding-left: 0.8rem;
       }
+
+      .speedContianer {
+        display: flex;
+        justify-content: center;
+      }
+
+      #speed {
+        padding-left: 0.2em;
+      }
+
     </style>
   </head>
   <body>
@@ -65,7 +75,10 @@
     <section class='main'>
       <div class='info-area'>
         <div id='state'></div>
-        <div id='speed'></div>
+        <div class='speedContianer'>
+          <p>Speed: </p>
+          <p id='speed'></p>
+        </div>
       </div>
       <div class='btn-area'>
         <div class='first-row'>
@@ -78,31 +91,35 @@
         </div>
       </div>
     </section>
-    <section class='footer'><h6>test 2</h6></sect/ion>
   </body>
 
   <script>
     let started = false;
     let speed = 0;
+    let increment = 100;
     const stateField = document.getElementById('state');
+    const speedField = document.getElementById('speed');
+    speedField.innerHTML = speed;
     stateField.innerHTML = started ? 'Started' : 'Stopped';
     const handleStart = () => {
       fetch('/start')
-        .then(res => res.status === 206 ? started = true : null);
-      stateField.innerHTML = started ? 'Stopped' : 'Started';
+        .then(res => res.status === 206 ? started = true : null)
+        .then(res => stateField.innerHTML = started ? 'Started' : 'Stopped');
     };
     const handleStop = () => {
       fetch('/stop')
-        .then(res => res.status === 207 ? started = false : null);
-      stateField.innerHTML = started ? 'Stopped' : 'Started';
+        .then(res => res.status === 207 ? started = false : null)
+        .then(res => stateField.innerHTML = !started ? 'Stopped' : 'Started');
     };
     const handleSpeedUp = () => {
       fetch('/speedUp')
-        .then(res => console.log(res.status));
+        .then(res => res.status === 210 ? speed += increment : null)
+        .then(res => speedField.innerHTML = speed);
     };
     const handleSpeedDown = () => {
       fetch('/speedDown')
-        .then(res => console.log(res.status));
+        .then(res => res.status === 211 ? speed -= increment : null)
+        .then(res => speedField.innerHTML = speed);
     };
   </script>
 </html>
